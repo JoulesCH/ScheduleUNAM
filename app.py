@@ -6,6 +6,8 @@ import indexString
 from dash.dependencies import Input, Output, State
 from dash.exceptions import PreventUpdate
 
+import Home
+
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],suppress_callback_exceptions=True)
@@ -24,7 +26,8 @@ app.layout = html.Div([
                                             [
                                                 dbc.Col(html.Img(src=logo, height="30px")),
                                                 dbc.Col(dbc.NavbarBrand("FES Acatlán | MAC - 1152", className="ml-2")),
-                                            ],
+                                                
+                                             ],
                                             align="center",
                                             no_gutters=True,
                                         ),
@@ -32,6 +35,24 @@ app.layout = html.Div([
                                     ),
                                     dbc.NavbarToggler(id="navbar-toggler"),
                                     #dbc.Collapse(search_bar, id="navbar-collapse", navbar=True),
+                                    dbc.DropdownMenu(
+                                                                children=[
+                                                                    dbc.DropdownMenuItem("Home", header=True),
+                                                                    dbc.DropdownMenuItem("Resumen", href="/home"),
+                                                                    dbc.DropdownMenuItem("Álgebra", href="/algebra"),
+                                                                    dbc.DropdownMenuItem("Cálculo", href="/calculo"),
+                                                                    dbc.DropdownMenuItem("Programación", href="/programcion"),
+                                                                    dbc.DropdownMenuItem("OdC", href="/organizacion"),
+                                                                    dbc.DropdownMenuItem("SAP", href="/solucion"),
+                                                                    dbc.DropdownMenuItem("Lógica", href="/logica"),
+                                                                ],
+                                                                #nav=True,
+                                                                in_navbar=True,
+                                                                #label="More",
+                                                                style = {'padding-left':120},
+                                                                label="Selecciona un curso", right=True,
+                                                                color="primary", className="m-1"
+                                                ),
                                 ],
                                 color="dark",
                                 dark=True,
@@ -42,7 +63,19 @@ app.layout = html.Div([
 
 @app.callback([Output('principal-screen','children')],[Input('url', 'pathname'), Input('url','href')])
 def display_page(pathname,url):
-    return [html.Div(html.H1('¡Bienvenido!',style={'color':'rgb(0,0,0)','padding-top':20}),style= {'text-align':'center','padding-bottom':1000})]
+    if '/home'== pathname or '/'==pathname:
+        return  Home.home
+                
+def toggle_modal(pathname, n2, is_open):
+    if pathname =='/home' or '/'==pathname:
+        return not is_open
+    return is_open
+
+app.callback(
+    Output("modal-lg", "is_open"),
+    [Input("url", "pathname"), Input("close-lg", "n_clicks")],
+    [State("modal-lg", "is_open")],
+)(toggle_modal)
 
 if __name__ == '__main__':
     app.run_server(debug = True)
