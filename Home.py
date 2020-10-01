@@ -9,7 +9,7 @@ def now_1():
     day = now.strftime("%A")
 
     if day == 'Monday' or day == 'Wednesday' or day =='Friday':
-        if (now.hour < 16):
+        if ((now.hour-5) < 16):
             return [html.Div(html.H1('Siguiente clase:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -34,7 +34,7 @@ def now_1():
                                                     ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         )]
-        elif now.hour >= 16 and now.hour < 18:
+        elif (now.hour-5) >= 16 and (now.hour-5) < 18:
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -82,7 +82,7 @@ def now_1():
                                                     ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         ),]
-        elif now.hour >= 18 and now.hour < 20:
+        elif (now.hour-5) >= 18 and (now.hour-5) < 20:
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -130,7 +130,7 @@ def now_1():
                                                  #   ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         ),]
-        elif now.hour >= 20 and now.hour < 22:
+        elif (now.hour-5) >= 20 and (now.hour-5) < 22:
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -160,7 +160,7 @@ def now_1():
         else:
             return [html.Div()]
     elif day == 'Tuesday' or day == 'Thursday':
-        if (now.hour < 16):
+        if ((now.hour-5) < 16):
             return [html.Div(html.H1('Siguiente clase:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -185,7 +185,7 @@ def now_1():
                                                     ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         )]
-        elif now.hour >= 16 and now.hour < 18:
+        elif (now.hour-5) >= 16 and (now.hour-5) < 18:
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -241,7 +241,7 @@ def now_1():
                                                     ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         ),]
-        elif now.hour >= 18 and now.hour < 20:
+        elif (now.hour-5) >= 18 and (now.hour-5) < 20:
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
                 dbc.Card( dbc.CardBody(
@@ -312,7 +312,7 @@ def now_1():
                                                     ),
                             ]), style = {'margin-left':'auto','margin-right':'auto','width':'70%'}
                         ),]
-        elif now.hour >= 20 and now.hour < 22:
+        elif (now.hour-5) >= 20 and (now.hour-5) < 22:
             #print(now)
             return [html.Div(html.H1('Estás en la clase de:',style={'color':'rgb(0,0,0)','padding-top':20}),
                             style= {'text-align':'center','margin-bottom':30}),
