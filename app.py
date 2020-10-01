@@ -64,7 +64,7 @@ app.layout = html.Div([
 @app.callback([Output('principal-screen','children')],[Input('url', 'pathname'), Input('url','href')])
 def display_page(pathname,url):
     if '/home'== pathname or '/'==pathname:
-        return  Home.home
+        return  [Home.home]
                 
 def toggle_modal(pathname, n2, is_open):
     if pathname =='/home' or '/'==pathname:
