@@ -12,7 +12,7 @@ external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
 app = dash.Dash(__name__, external_stylesheets=[dbc.themes.BOOTSTRAP], meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],suppress_callback_exceptions=True)
 server = app.server
-app.title = 'CdP ESFM'
+app.title = 'MAC 1152'
 app.index_string = indexString.string
 logo = "http://www.unamglobal.unam.mx/wp-content/uploads/2017/05/LOGO-UNAM.png"
 color_fondo = '#ffffff' #'rgb(5,27,83)'#'061d47'
